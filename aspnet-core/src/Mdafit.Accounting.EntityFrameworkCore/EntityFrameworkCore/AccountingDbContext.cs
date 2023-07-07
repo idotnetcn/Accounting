@@ -12,7 +12,7 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
-
+using Mdafit.Accounting.Accounts;
 namespace Mdafit.Accounting.EntityFrameworkCore;
 
 [ReplaceDbContext(typeof(IIdentityDbContext))]
@@ -52,7 +52,10 @@ public class AccountingDbContext :
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
 
     #endregion
-
+    /// <summary>
+    /// 账户信息
+    /// </summary>
+    public DbSet<Account> Accounts { get; set; }
     public AccountingDbContext(DbContextOptions<AccountingDbContext> options)
         : base(options)
     {
@@ -75,12 +78,6 @@ public class AccountingDbContext :
         builder.ConfigureTenantManagement();
 
         /* Configure your own tables/entities inside here */
-
-        //builder.Entity<YourEntity>(b =>
-        //{
-        //    b.ToTable(AccountingConsts.DbTablePrefix + "YourEntities", AccountingConsts.DbSchema);
-        //    b.ConfigureByConvention(); //auto configure for the base class props
-        //    //...
-        //});
+        builder.ConfigureAccounting();
     }
 }
