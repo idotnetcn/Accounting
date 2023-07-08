@@ -1,1 +1,2 @@
-# Accounting
+# Accounting个人财务管理
+发现记账的乐趣,个人/家庭财务尽在掌控
