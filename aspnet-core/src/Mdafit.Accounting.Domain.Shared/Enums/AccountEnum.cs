@@ -3,39 +3,32 @@ namespace Mdafit.Accounting.Enums;
 /// <summary>
 /// 账户分类
 /// </summary>
-public enum AccountCategoryEnum
+public enum AccountTypeEnum
 {
     /// <summary>
-    /// 现金
+    /// 资金账户
     /// </summary>
-    [Description("")]
-    cash = 0,
+    /// <remarks>
+    /// 如借记卡，现金
+    /// </remarks>
+    fund = 1,
     /// <summary>
     /// 信用卡
     /// </summary>
-    credit = 1,
+    credit = 2,
     /// <summary>
-    /// 储蓄卡
-    /// </summary>
-    debit = 2,
-    /// <summary>
-    /// 虚拟账户
+    /// 虚拟账户/充值卡账户
     /// </summary>
     @virtual = 3,
     /// <summary>
-    /// 股票
+    /// 投资理财
     /// </summary>
-    stock = 4,
+    investment = 4,
     /// <summary>
-    /// 基金
+    /// 债务
     /// </summary>
-    fund = 5,
-    /// <summary>
-    /// 负债账户
-    /// </summary>
-    liability = 6,
-    /// <summary>
-    /// 债权账户
-    /// </summary>
-    debt_claim = 7
+    /// <remarks>
+    /// 借入/借出
+    /// </remarks>
+    debt = 5
 }
